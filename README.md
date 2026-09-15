@@ -9,7 +9,7 @@ This website calculates annual aggregate FitnessGram Healthy Fitness Zone result
 3. Upload the file and review the automatically detected categories.
 4. Select **Analyze the School Year**.
 5. Review Annual, Latest, Pre, Post, and Pre-to-Post movement totals.
-6. Print the summary or download the aggregate Excel report.
+6. Enter the school name and school year, then print the county-style annual summary or download the aggregate Excel report.
 
 The site discards individual spreadsheet rows immediately after calculating totals. It does not use cookies, local storage, a database, analytics, or a server upload. Excel parsing uses SheetJS loaded from jsDelivr. CSV analysis can work without that library.
 
