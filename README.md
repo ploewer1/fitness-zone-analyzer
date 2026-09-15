@@ -19,6 +19,8 @@ Grade, age, gender, and phase are required. Common heading variations such as `G
 
 Use `M` or `F` for gender and `Pre`, `Mid`, or `Post` for phase. One-mile times can use `minutes:seconds`, such as `10:30`. Combined left/right values may use a pipe, such as `9 | 10`. `X`, `M`, blank, invalid, and adapted entries such as `A12` are excluded from HFZ calculations.
 
+Cell alignment does not affect importing. Values may be left-, center-, or right-aligned, and numeric values may be stored as either numbers or text. A blank test cell excludes only that test result for that student; other completed tests on the same row remain eligible. A fitness-test column with no scores is omitted from the analysis.
+
 After a file is selected, the review screen identifies the worksheet and reports spreadsheet row numbers containing blank or unrecognized gender, age, grade, or phase values. Grade zero is treated as invalid rather than displayed as a grade.
 
 Annual means the student met a category's HFZ at least once during the school year. Latest uses Post when available, then Mid, then Pre. If a student has only one valid assessment, it becomes both the Annual and Latest result. Pre-to-Post movement is reported separately.
