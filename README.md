@@ -15,9 +15,11 @@ The site discards individual spreadsheet rows immediately after calculating tota
 
 ## Expected fields
 
-Grade, age, gender, and phase are required. Boys and girls may be included in the same file. The site supports curl-ups, 90-degree push-ups, trunk lift, combined left/right back-saver sit-and-reach, combined shoulder stretch, 15-meter and 20-meter PACER, one-mile run, and flexed-arm hang.
+Grade, age, gender, and phase are required. Common heading variations such as `Grade Level`, `Student Age`, `Sex`, `Pre/Post`, `Test Period`, and `Phase (Pre or Post)` are recognized. The heading row may appear within the first 15 rows of any worksheet. Boys and girls may be included in the same file. The site supports curl-ups, 90-degree push-ups, trunk lift, combined or separate left/right back-saver sit-and-reach, combined or separate left/right shoulder stretch, 15-meter and 20-meter PACER, one-mile run, and flexed-arm hang.
 
 Use `M` or `F` for gender and `Pre`, `Mid`, or `Post` for phase. One-mile times can use `minutes:seconds`, such as `10:30`. Combined left/right values may use a pipe, such as `9 | 10`. `X`, `M`, blank, invalid, and adapted entries such as `A12` are excluded from HFZ calculations.
+
+After a file is selected, the review screen identifies the worksheet and reports spreadsheet row numbers containing blank or unrecognized gender, age, grade, or phase values. Grade zero is treated as invalid rather than displayed as a grade.
 
 Annual means the student met a category's HFZ at least once during the school year. Latest uses Post when available, then Mid, then Pre. If a student has only one valid assessment, it becomes both the Annual and Latest result. Pre-to-Post movement is reported separately.
 
