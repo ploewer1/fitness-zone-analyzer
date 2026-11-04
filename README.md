@@ -1,32 +1,37 @@
-# Fitness Zone Analyzer
+# Evolution PE Fitness Test Analyzer (beta)
 
-This website calculates annual aggregate FitnessGram Healthy Fitness Zone results from a WELNET export without uploading or saving student rows.
+A single web page (`index.html`) that summarizes class fitness-testing results. It runs in your browser. It does not upload, save, or send student rows anywhere, and it has no cookies, accounts, or analytics.
 
 ## Use
+1. Open `index.html` in a modern browser, or publish the repo with GitHub Pages.
+2. **Step 1:** choose the standards: your FitnessGram "Standard Met" columns, the 2026 Presidential Physical Fitness Test benchmarks, or your own standards.
+3. **Step 2:** add scores by **uploading a file** (.xlsx, .xls, .csv) or by **typing or pasting scores**.
+4. Review what was found, choose **Analyze**, then print the report or download the Excel summary.
 
-1. Open `index.html` in a modern browser, or publish it with GitHub Pages.
-2. Export the source data from Google Sheets or Microsoft Excel as `.xlsx`, `.xls`, or `.csv`.
-3. Upload the file and review the automatically detected categories.
-4. Select **Analyze the School Year**.
-5. Review Annual, Latest, Pre, Post, and Pre-to-Post movement totals.
-6. Enter the school name and school year, then print the county-style annual summary or download the aggregate Excel report.
+## Typing or pasting scores
+- **Paste straight into the table.** Copy cells from Excel or Google Sheets, click the first **Student ID** box, and paste. The cells land in the right columns, and new rows are added as needed.
+- **Headings are optional.** With a heading row, columns can be in any order (Gender or Sex, Mile, Pushups, etc.). Without one, columns are read in the order of the table; the paste box shows that order.
+- Words are understood: Boy/Girl or Male/Female, "4th" or "K", "pre".
+- **Mile times:** type `830` and it becomes `8:30`. Spreadsheet time cells such as `0:08:30` and `8:30:00` are read as 8:30. Decimal times such as `8.30` are **not guessed**; you are asked to change them to `8:30`, because they could be misread as 8 minutes 18 seconds.
+- On phones, score boxes open a number keypad.
+- Use initials or ID numbers, not student names. Nothing is saved; use **Download my table (CSV)** before closing the page.
 
-The site discards individual spreadsheet rows immediately after calculating totals. It does not use cookies, local storage, a database, analytics, or a server upload. Excel parsing uses SheetJS loaded from jsDelivr. CSV analysis can work without that library.
+## Version 2.1 changes (typing and pasting)
+- Pasting a block into the table no longer dumps everything into one box.
+- Spreadsheet time cells are no longer silently left out.
+- Decimal mile times are no longer silently misread.
+- Heading row is optional in the paste box.
+- Uploads give identical results to version 2 (checked with a 24-row sample).
 
-## Expected fields
+## Not yet verified
+- **The built-in FitnessGram tables are copies of FitnessGram standards.** Ask the Cooper Institute and GreenLight Fitness before sharing widely. The PACER numbers were read from screenshots; check them against the official chart. The older 2007 tables were not re-checked.
+- Tested in desktop Chrome and a phone-size window. Not tested on a real phone, Safari, or a screen reader.
+- The Presidential table does not say which beep-test recording its lap counts assume.
+- Uploads of mile times written as decimals (such as `8.30`) are still read as decimal minutes. Use `m:ss`.
 
-Grade, age, gender, and phase are required. Common heading variations such as `Grade Level`, `Student Age`, `Sex`, `Pre/Post`, `Test Period`, and `Phase (Pre or Post)` are recognized. The heading row may appear within the first 15 rows of any worksheet. Boys and girls may be included in the same file. The site supports curl-ups, 90-degree push-ups, trunk lift, combined or separate left/right back-saver sit-and-reach, combined or separate left/right shoulder stretch, 15-meter and 20-meter PACER, one-mile run, and flexed-arm hang.
+## Important
+- Do not use identifiable student data until your district approves it. Follow your district's rules.
+- Independent tool. Not affiliated with or endorsed by The Cooper Institute, GreenLight Fitness (WELNET), or the President's Council on Sports, Fitness & Nutrition. FITNESSGRAM and Healthy Fitness Zone are registered trademarks of The Cooper Institute.
 
-Use `M` or `F` for gender and `Pre`, `Mid`, or `Post` for phase. One-mile times can use `minutes:seconds`, such as `10:30`. Combined left/right values may use a pipe, such as `9 | 10`. `X`, `M`, blank, invalid, and adapted entries such as `A12` are excluded from HFZ calculations.
-
-Cell alignment does not affect importing. Values may be left-, center-, or right-aligned, and numeric values may be stored as either numbers or text. A blank test cell excludes only that test result for that student; other completed tests on the same row remain eligible. A fitness-test column with no scores is omitted from the analysis.
-
-After a file is selected, the review screen identifies the worksheet and reports spreadsheet row numbers containing blank or unrecognized gender, age, grade, or phase values. Grade zero is treated as invalid rather than displayed as a grade.
-
-Annual means the student met a category's HFZ at least once during the school year. Latest uses Post when available, then Mid, then Pre. If a student has only one valid assessment, it becomes both the Annual and Latest result. Pre-to-Post movement is reported separately.
-
-## Standards and limits
-
-When a WELNET export contains matching `Standard Met` columns, the website uses WELNET's `Y` and `N` results as the authority. A blank WELNET status is treated as not scored. The embedded 2007 FitnessGram Healthy Fitness Zone tables are used only when the corresponding WELNET status column is absent.
-
-Confirm the standards and assessment rules required by your district before using the totals for official reporting. FitnessGram advises against using these results to grade individual students, compare students with one another, or evaluate teacher effectiveness.
+## Rollback
+The previous version is in the commit history. Restore `index.html` from the commit before "Fitness Test Analyzer 2.1".
